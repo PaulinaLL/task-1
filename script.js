@@ -7,6 +7,12 @@ class Styles {
         const selectorExsistInDocument = document.querySelectorAll(selector).length
             ? true
             : false;
+        if (!attributes.includes("{")) {
+            throw new Error("Input must include the bracets '{'");
+        }
+        if (mediaQuery && !mediaQuery.includes(":")) {
+            throw new Error("String must include the character ':'");
+        }
         if (mediaQuery) {
             if (selectorExsistInDocument && selector && attributes) {
                 styleElement.innerHTML =
